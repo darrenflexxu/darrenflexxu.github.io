@@ -1,37 +1,987 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
 
 
-{% block title %}{{ page.title }} | {{ config.title }}{% endblock %}
 
-{% block page_class %}page-post-detail{% endblock %}
+  
 
 
-{% block content %}
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="此文介绍如何选主材。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="主材选择">
+<meta property="og:url" content="http://yoursite.com/2018/06/05/%E4%B8%BB%E6%9D%90%E9%80%89%E6%8B%A9/index.html">
+<meta property="og:site_name" content="勇士传说">
+<meta property="og:description" content="此文介绍如何选主材。">
+<meta property="og:locale">
+<meta property="article:published_time" content="2018-06-04T17:50:46.000Z">
+<meta property="article:modified_time" content="2023-02-14T17:47:31.218Z">
+<meta property="article:author" content="Xu D.F.">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/06/05/主材选择/"/>
+
+
+
+
+
+  <title>主材选择 | 勇士传说</title>
+  
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '',
+      xfbml      : true,
+      version    : 'v2.10'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/zh_Hans/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
+
+
+
+
+
+
+
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+   <script type="text/javascript" src="/js/src/fireworks.js"></script>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">勇士传说</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">DarrenFlex Xu 个人博客</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            日程表
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
 
   <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/05/%E4%B8%BB%E6%9D%90%E9%80%89%E6%8B%A9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="勇士传说">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">主材选择</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-05T01:50:46+08:00">
+                2018-06-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/06/05/%E4%B8%BB%E6%9D%90%E9%80%89%E6%8B%A9/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="http://yoursite.com/2018/06/05/%E4%B8%BB%E6%9D%90%E9%80%89%E6%8B%A9/" itemprop="commentCount">0</span> comments
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/06/05/%E4%B8%BB%E6%9D%90%E9%80%89%E6%8B%A9/" class="leancloud_visitors" data-flag-title="主材选择">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  3k 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  10 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>此文介绍如何选主材。</p>
+<span id="more"></span>
+
+<h1 id="瓷砖"><a href="#瓷砖" class="headerlink" title="瓷砖"></a>瓷砖</h1><p>  主要用于客厅、卧室、厨房、卫生间地面及墙面的铺装。具有防水、耐磨、耐清洗的优点，<strong>目前市面上最普遍的是釉面砖、玻化砖、通体砖、仿古砖等</strong>。</p>
+<p>  瓷砖属于陶瓷制品，就像家里的陶瓷碗、陶瓷洗脸盆、陶瓷马桶这些，都是陶瓷制品。陶瓷制品的制作工序大同小异，首先是选择材料，主要材料是陶瓷粘土，还需要按一定比例添加其他辅料，然后混合做成陶瓷原料。第二步是成型，比如洗脸盆马桶这些都有专门的磨具来成型，瓷砖比较简单，大部分瓷砖都是正方形或者长方形，只需要简单的磨具通过压制就能成型。第三步就是烧制，成型的胚体要通过高温窑炉烧制，烧制出炉后才能成为我们市场上看到的瓷砖。当然在制作的过程中还有很多繁琐的工序，这里不详细描述。</p>
+<p>  市面上的瓷砖种类繁多，有抛光砖、玻化砖、釉面砖、抛釉砖、微晶砖等等，太多的品类有时候记都记不住，这些名字有些是行业内公认的叫法，有些是某个厂家自己想出来的名字，现在我们看看这些名字是怎样来的。一片瓷砖通过成型烧制出炉后，通过抛光使瓷砖有了光滑的表面，这种通常叫做<strong>抛光砖</strong>，也是市场上最普遍的瓷砖。玻化砖其实也是一种抛光砖，只不过因为这种瓷砖烧制温度高，已经高度的瓷化，吸水率接近零，所以叫做<strong>玻化砖</strong>。一片瓷砖胚体成型后，在胚体上面喷一层釉然后再烧制，这种一般叫<strong>釉面砖</strong>。如果这层釉面比较厚，烧制出炉后再经过抛光，这种一般叫做<strong>抛釉砖</strong>。一片瓷砖胚体成型后，在胚体上面喷上一层晶体材料，然后再进行烧制，这种一般叫<strong>微晶砖或者叫微晶石</strong>。综上所述，我们知道抛光砖是一体的，只有一层陶瓷胚体，釉面砖是两层的，一层胚体一层釉，微晶砖也是两层的，一层胚体一层晶体。</p>
+<p>  这些种类的砖都各有优缺点，<strong>抛光砖耐磨，表面通过抛光怎样磨都不怕，但是抛光砖抗污能力差</strong>，胚体在压制过程中会产生很多气孔，抛光后气孔仍然存在，如果处理的不好很容易渗入污垢，比较难清洗，市面上也有一些高品质的抛光砖表面是通过抗污处理的。釉面砖表面有一层釉，现在的釉面都是通过电脑设计喷上去的，釉面砖可以做出很多图案，所以<strong>釉面砖表现的内容很丰富，釉面砖的抗污能力也很好，釉面砖的缺点是不耐磨，表层的釉面容易被石头沙子这些刮花</strong>。微晶砖表面有一层晶体，这层晶体类似于玻璃，所以<strong>微晶砖很亮很华丽，抗污能力也很好，但是缺点跟釉面砖一样，容易被刮花</strong>。</p>
+<p>  知道了这些砖的优缺点，我们选购的时候就应该注意以下几点：</p>
+<p>  <strong>吸水率</strong>，吸水率越低说明砖的瓷化程度高、内部密度高、毛孔少质量好。我们用一钟最简单的方法来测试吸水率，选购瓷砖的时候带上一瓶矿泉水，把瓷砖翻过来放平，在瓷砖背面倒一点水，看看吸水速度怎么样，吸水越快说明瓷砖质量不好，基本不吸水那才是好的瓷砖。</p>
+<p>  <strong>抗污能力</strong>，选购瓷砖的时候带一只油性笔，在瓷砖表面画一画，然后再擦掉，容易擦掉的说明瓷砖抗污能力好，不容易擦掉的说明抗污能力差。</p>
+<p>  <strong>平整度</strong>，仔细看一下整片瓷砖，或者拿两片瓷砖合在一起，看看有没有翘边，有没有凹凸不平的，好的瓷砖应该是平整的，结合在一起是紧密的。</p>
+<p>  <strong>规格</strong>，选择适合你家里的瓷砖规格，大空间选择大规格的瓷砖，小空间选择小规格的瓷砖，这样施工起来也方便。</p>
+<p>  <strong>价格</strong>，正常来说微晶砖的价格最贵，然后是釉面砖，最便宜的是抛光砖。</p>
+<p>  还有一点需要说一下仿古砖，<strong>仿古砖跟砖的结构没有关系，可以是抛光砖也可以是釉面砖，仿古砖只是一种风格的瓷砖</strong>，通过砖古朴的颜色或者线条来表现一种仿古的风格，当然也有其他风格的瓷砖，比如现代简约风格的等等。</p>
+<h1 id="地板"><a href="#地板" class="headerlink" title="地板"></a>地板</h1><p>主要用于客厅、卧室地面的铺装。地板近年来越来越受到大众的喜欢，因为其舒适、防滑的优势，很多人都会选择安装于卧室及客厅；目前市面上最多的是强化地板、实木地板、复合地板、竹木地板、地热地板等。实木地板在脚感、品质、舒适性都优于其他地板，但价格相对贵一点，而且后期维护保养也需要一定的耐心。强化地板、复合地板则界于瓷砖和实木地板之间，相对经济实惠。其中实木复合地板和强化复合地板可用于地热地面。</p>
+<h2 id="选购地板质量辨别窍门"><a href="#选购地板质量辨别窍门" class="headerlink" title="选购地板质量辨别窍门"></a>选购地板质量辨别窍门</h2><p>1、眼睛看。观察基材的密度是否是高密度、中密度、低密度；颜色是否正常的白，木面颗粒是否细腻得正常，木面颗粒细得象灰面一样的是水洗基材，结构、密度都远远达不到江西抚洲大雅基材的密度结实；木纹是否逼真：质量好的地板通常是选购源海一带的进口木纹纸皮，纹路清晰，靓丽，看起来很温心，好象生活在大自人然的森林中，中低档次的地板一般都是地方小厂生产的基材颜色黑，木纹纸不清亮，纹路比较模糊。<br>2、鼻子闻气味。质量好的强化地板它没有臭味，相反还有一点木材香味。低价劣质地板就相反了，你只要用鼻子闻基材就有怪味，熏鼻子，有一种不舒服的感觉。<br>3、清水测试地板基材。好的地板基材密度是很高的，是不容易吸水返潮的，最简单的测试方法：把清水倒在地板的基材上，它是不会吸收进去的，像水珠子一样浮在基材上流动。低价劣质地板见水就吸收，清水立马不见踪迹，在生活使用当中，很快膨胀，起泡起鼓。<br>4、测试拼缝。基材密度高的地板，从车间到库房时间不管有多长，它不会膨胀，不会出现几何尺寸高低差，安装出来企口平整光滑，合起来像整板一样，看不出来是拼合起来的地板。<br>5、木纹纸。进口木纹纸它的清晰度相当的高，热压出来的地板和天然的实木地板比较起来还要真实，并且没有色差；材刨出来的一样逼真，相当的高档；即使其他品牌有相近的木纹花色它也不清晰，比较模糊。<br>6、要求商家出示产品执行标准：神象地板严格执行国家标准GB&#x2F;T18102-2000GB18580-2001。<br>7、正规的生产厂家有LSO9001:2000(质量管理体系要求)或LSO14001环境管理体系和中国环境认证体系。<br>8、正规的生产厂家应该有QS质量安全生产许可证。 </p>
+<h1 id="洁具"><a href="#洁具" class="headerlink" title="洁具"></a>洁具</h1><p>厨房、卫生间标配；洁具是指在卫生间、厨房应用的陶瓷及五金家居设备。</p>
+<p>主要包括：洗漱台、浴室柜、龙头花洒、便器、卫浴设备、面盆、冲洗阀&#x2F;阀芯、浴室配件、浴缸&#x2F; 淋浴&#x2F;桑拿房、浴室电器、卫浴陶瓷砖、玻璃洁具&#x2F;卫浴镜 、木质洁具&#x2F;亚克力&#x2F;塑胶洁具 、清洁用品 、厨卫&#x2F;厨房挂件、刀架&#x2F; 厨房挂钩 &#x2F;调味品架 、陶瓷原料&#x2F;琉璃瓦&#x2F;瓷砖等。</p>
+<h1 id="门"><a href="#门" class="headerlink" title="门"></a>门</h1><p>住宅必备，目前市面上有各种工艺、材质的套装门，基本取代传统木工制作的门。套装门主要分为实木门、实木复合门、钢木门、模压门、免漆门等，还有用于厨房卫生间推拉门。</p>
+<h1 id="橱柜"><a href="#橱柜" class="headerlink" title="橱柜"></a>橱柜</h1><p>厨房必备主材，橱柜目前分为<strong>整体橱柜</strong>和<strong>传统制作橱柜</strong>。整体橱柜其特点是将橱柜与操作台以及厨房电器和各种功能部件有机结合在一起，并按照消费者家中厨房结构、面积、以及家庭成员的个性化需求，通过整体配置、整体设计、整体施工，最后形成成套产品；实现厨房工作每一道工序的整体协调，并营造出良好的家庭气氛、浓厚的生活气息。相较于传统橱柜有很多的优点，已经逐渐取代传统橱柜。</p>
+<h1 id="烟机灶具"><a href="#烟机灶具" class="headerlink" title="烟机灶具"></a>烟机灶具</h1><p>烟机灶具包括抽油烟机和灶具。按外观分抽油烟机可分为三种：中式烟机、欧式烟机、侧吸式、多媒体智能机。也可分为上排式、侧排式、下排式。灶具目前主要都为天然气灶具。</p>
+<h1 id="灯具"><a href="#灯具" class="headerlink" title="灯具"></a>灯具</h1><p>灯具，是指能透光、分配和改变光源光分布的器具，包括除光源外所有用于固定和保护光源所需的全部零部件，以及与电源连接所必需的线路附件。夜间采光必备，对空间装饰效果其很大的作用。</p>
+<p>目前主流灯具包括： 吊灯、 吸顶灯、落地灯、 壁▪ 台灯、 射灯、浴霸 、节能灯等，而且大多数都为节能的LED灯，灯具的挑选必须要考虑实用、美观、节能，而且要与整个装修风格基调一致。</p>
+<h1 id="吊顶"><a href="#吊顶" class="headerlink" title="吊顶"></a>吊顶</h1><p>吊顶是指房屋居住环境的顶部装修。简单的说，就是指天花板的装修，是室内装饰的重要部分之一。吊顶具有保温，隔热，隔声，吸声的作用，也是电气、通风空调、通信和防火、报警管线设备等工程的隐蔽层。</p>
+<p>吊顶主要有：轻钢龙骨石膏板吊顶、石膏板吊顶、矿棉板吊顶、夹板吊顶、异形长条铝扣板吊顶、方形镀漆铝扣板吊顶、彩绘玻璃吊顶、铝蜂窝穿孔吸音板吊顶、全房复式吊顶等。在整个居室装饰中占有相当重要的地位，对居室顶面作适当的装饰，不仅能美化室内环境，还能营造出丰富多彩的室内空间艺术形象。在选择吊顶装饰材料与设计方案时，要遵循既省材、牢固、安全、又美观、实用的原则。</p>
+<h1 id="石材"><a href="#石材" class="headerlink" title="石材"></a>石材</h1><p>目前市场上常见的石材主要分为天然石和人造石、大理石。可用于窗台板、飘窗、台面、楼梯台阶、墙面装饰等。</p>
+<h1 id="水槽"><a href="#水槽" class="headerlink" title="水槽"></a>水槽</h1><p>是厨房必备材料，从功能和尺寸上分单槽、双槽、带灯具、淋水盘等型号，材质大部分为不锈钢。</p>
+<h1 id="开关插座"><a href="#开关插座" class="headerlink" title="开关插座"></a>开关插座</h1><p>按照功能分为，N开双控、五孔插座、16A三孔插座、带开关插座、信息插座、电话插座、电视插座、多功能插座、音箱插座、空白面板、防水盒等等。</p>
+<h1 id="墙纸"><a href="#墙纸" class="headerlink" title="墙纸"></a>墙纸</h1><h1 id="热水器"><a href="#热水器" class="headerlink" title="热水器"></a>热水器</h1>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/02/%E8%A3%85%E4%BF%AE/" rel="next" title="装修">
+                <i class="fa fa-chevron-left"></i> 装修
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/24/CDN/" rel="prev" title="CDN">
+                CDN <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
 
     <div class="post-spread">
-      {% if theme.jiathis %}
-        {% include '_partials/share/jiathis.swig' %}
-      {% elseif theme.baidushare %}
-        {% include '_partials/share/baidushare.swig' %}
-      {% elseif theme.add_this_id %}
-        {% include '_partials/share/add-this.swig' %}
-      {% elseif theme.duoshuo_shortname and theme.duoshuo_share %}
-        {% include '_partials/share/duoshuo_share.swig' %}
-      {% endif %}
+      
     </div>
   </div>
 
-{% endblock %}
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+          </div>
+          
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div class="fb-comments"
+           data-href="http://yoursite.com/2018/06/05/%E4%B8%BB%E6%9D%90%E9%80%89%E6%8B%A9/"
+           data-numposts="10"
+           data-width="100%"
+           data-colorscheme="light">
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">43</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%93%B7%E7%A0%96"><span class="nav-number">1.</span> <span class="nav-text">瓷砖</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9C%B0%E6%9D%BF"><span class="nav-number">2.</span> <span class="nav-text">地板</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%89%E8%B4%AD%E5%9C%B0%E6%9D%BF%E8%B4%A8%E9%87%8F%E8%BE%A8%E5%88%AB%E7%AA%8D%E9%97%A8"><span class="nav-number">2.1.</span> <span class="nav-text">选购地板质量辨别窍门</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B4%81%E5%85%B7"><span class="nav-number">3.</span> <span class="nav-text">洁具</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%97%A8"><span class="nav-number">4.</span> <span class="nav-text">门</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A9%B1%E6%9F%9C"><span class="nav-number">5.</span> <span class="nav-text">橱柜</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%83%9F%E6%9C%BA%E7%81%B6%E5%85%B7"><span class="nav-number">6.</span> <span class="nav-text">烟机灶具</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%81%AF%E5%85%B7"><span class="nav-number">7.</span> <span class="nav-text">灯具</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%90%8A%E9%A1%B6"><span class="nav-number">8.</span> <span class="nav-text">吊顶</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9F%B3%E6%9D%90"><span class="nav-number">9.</span> <span class="nav-text">石材</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B0%B4%E6%A7%BD"><span class="nav-number">10.</span> <span class="nav-text">水槽</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BC%80%E5%85%B3%E6%8F%92%E5%BA%A7"><span class="nav-number">11.</span> <span class="nav-text">开关插座</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A2%99%E7%BA%B8"><span class="nav-number">12.</span> <span class="nav-text">墙纸</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%83%AD%E6%B0%B4%E5%99%A8"><span class="nav-number">13.</span> <span class="nav-text">热水器</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xu D.F.</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">26.8k</span>
+  
+</div>
+
+<!--
+  
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+-->
+
+<span id="busuanzi_container_site_pv">
+	本站总访问量<span id="busuanzi_value_site_pv"></span>次
+</span>
+
+<span id="busuanzi_container_site_uv">
+    本站访客数<span id="busuanzi_value_site_uv"></span>人次
+</span>
+
+
+
+<!--
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+-->
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://darrenflexxu.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2018/06/05/%E4%B8%BB%E6%9D%90%E9%80%89%E6%8B%A9/';
+          this.page.identifier = '2018/06/05/主材选择/';
+          this.page.title = '主材选择';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://darrenflexxu.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+  
+  <!-- custom analytics part create by xiamo -->
+<script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+<script>AV.initialize("eE2kkOkVfmG9NLysiIPXG7jP-gzGzoHsz", "bN410QGRpkI3lLct24w0BLXl");</script>
+<script>
+function showTime(Counter) {
+	var query = new AV.Query(Counter);
+	$(".leancloud_visitors").each(function() {
+		var url = $(this).attr("id").trim();
+		query.equalTo("url", url);
+		query.find({
+			success: function(results) {
+				if (results.length == 0) {
+					var content = $(document.getElementById(url)).text() + '0 ';
+					$(document.getElementById(url)).text(content);
+					return;
+				}
+				for (var i = 0; i < results.length; i++) {
+					var object = results[i];
+					var content = $(document.getElementById(url)).text() + '' + object.get('time');
+					$(document.getElementById(url)).text(content);
+				}
+			},
+			error: function(object, error) {
+				console.log("Error: " + error.code + " " + error.message);
+			}
+		});
+
+	});
+}
+
+function addCount(Counter) {
+	var Counter = AV.Object.extend("Counter");
+	url = $(".leancloud_visitors").attr('id').trim();
+	title = $(".leancloud_visitors").attr('data-flag-title').trim();
+	var query = new AV.Query(Counter);
+	query.equalTo("url", url);
+	query.find({
+		success: function(results) {
+			if (results.length > 0) {
+				var counter = results[0];
+				counter.fetchWhenSave(true);
+				counter.increment("time");
+				counter.save(null, {
+					success: function(counter) {
+						var content = $(document.getElementById(url)).text() + ' ' + counter.get('time');
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(counter, error) {
+						console.log('Failed to save Visitor num, with error message: ' + error.message);
+					}
+				});
+			} else {
+				var newcounter = new Counter();
+				newcounter.set("title", title);
+				newcounter.set("url", url);
+				newcounter.set("time", 1);
+				newcounter.save(null, {
+					success: function(newcounter) {
+					    console.log("newcounter.get('time')="+newcounter.get('time'));
+						var content = $(document.getElementById(url)).text() + ' ' + newcounter.get('time');
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(newcounter, error) {
+						console.log('Failed to create');
+					}
+				});
+			}
+		},
+		error: function(error) {
+			console.log('Error:' + error.code + " " + error.message);
+		}
+	});
+}
+$(function() {
+	var Counter = AV.Object.extend("Counter");
+	if ($('.leancloud_visitors').length == 1) {
+		addCount(Counter);
+	} else if ($('.post-title-link').length > 1) {
+		showTime(Counter);
+	}
+}); 
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+</body>
+</html>

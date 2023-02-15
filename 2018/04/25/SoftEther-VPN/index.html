@@ -1,37 +1,984 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
 
 
-{% block title %}{{ page.title }} | {{ config.title }}{% endblock %}
 
-{% block page_class %}page-post-detail{% endblock %}
+  
 
 
-{% block content %}
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="SoftEther VPN部署相关介绍   介绍SoftEther VPN是一个由筑波大学研究生Daiyuu Nobori（登太游）因硕士论文而开发的开源、跨平台、多重协议的虚拟专用网方案，此方案让一些虚拟专用网协议像是SSL VPN 、L2TP、IPsec、OpenVPN以及微软SSTP都由同一个单一VPN服务器提供。在2014年1月4日以GNU通用公共授权条款的方式转变为开源软件。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SoftEther VPN">
+<meta property="og:url" content="http://yoursite.com/2018/04/25/SoftEther-VPN/index.html">
+<meta property="og:site_name" content="勇士传说">
+<meta property="og:description" content="SoftEther VPN部署相关介绍   介绍SoftEther VPN是一个由筑波大学研究生Daiyuu Nobori（登太游）因硕士论文而开发的开源、跨平台、多重协议的虚拟专用网方案，此方案让一些虚拟专用网协议像是SSL VPN 、L2TP、IPsec、OpenVPN以及微软SSTP都由同一个单一VPN服务器提供。在2014年1月4日以GNU通用公共授权条款的方式转变为开源软件。">
+<meta property="og:locale">
+<meta property="article:published_time" content="2018-04-25T06:35:18.000Z">
+<meta property="article:modified_time" content="2023-02-14T17:47:31.215Z">
+<meta property="article:author" content="Xu D.F.">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/04/25/SoftEther-VPN/"/>
+
+
+
+
+
+  <title>SoftEther VPN | 勇士传说</title>
+  
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '',
+      xfbml      : true,
+      version    : 'v2.10'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/zh_Hans/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
+
+
+
+
+
+
+
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+   <script type="text/javascript" src="/js/src/fireworks.js"></script>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">勇士传说</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">DarrenFlex Xu 个人博客</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            日程表
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
 
   <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/25/SoftEther-VPN/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="勇士传说">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">SoftEther VPN</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-25T14:35:18+08:00">
+                2018-04-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/04/25/SoftEther-VPN/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="http://yoursite.com/2018/04/25/SoftEther-VPN/" itemprop="commentCount">0</span> comments
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/04/25/SoftEther-VPN/" class="leancloud_visitors" data-flag-title="SoftEther VPN">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2.8k 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  10 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><a target="_blank" rel="noopener" href="http://blog.51cto.com/xmomo/2059948" title="SoftEther VPN部署">SoftEther VPN部署相关介绍</a> </p>
+<hr>
+<h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>SoftEther VPN是一个由筑波大学研究生Daiyuu Nobori（登太游）因硕士论文而开发的开源、跨平台、多重协议的虚拟专用网方案，此方案让一些虚拟专用网协议像是SSL VPN 、L2TP、IPsec、OpenVPN以及微软SSTP都由同一个单一VPN服务器提供。在2014年1月4日以GNU通用公共授权条款的方式转变为开源软件。</p>
+<span id="more"></span>
+
+<p>SothEther VPN是专门被设计为穿过防火墙的，支持NAT穿透，使其能越过政府或组织的防火墙，创建VPN通道。2013年3月，官方开始提供VPN Gate公共VPN中继服务器列表插件，以简化高强度网络审查地区有突破网络封锁（×××）需求的用户的操作难度。因为用了HTTPS来伪装连接，防火墙的深度数据包检测无法侦测到SofthEther的VPN发送数据包构成的VPN通道。但SoftEther的SSL VPN协议在中国大陆的部分地区仍然被封锁。<br>性能优化也是SoftEther VPN的一个目标。它使用像是利用全部以太网帧的策略，减少了内存复制的操作、平行传输和群集，这减少了通常VPN连接会有的延迟并增加了运输吞吐量。</p>
+<h2 id="互用性"><a href="#互用性" class="headerlink" title="互用性"></a>互用性</h2><p>VPN服务器和VPN桥接器支持微软、Linux、Mac OS X(除了10.9.x)、FreeBSD还有Solaris这些操作系统。SoftEther VPN支持自己的VPN协议但可以和OpenVPN、微软Secure Socket Tunneling Protocol(SSTP)、SSL VPN、EtherIP、L2TPv3、IPsec兼容。借由L2TP&#x2F;IPsec&#x2F;OpenVPN，可以支持移动设备系统如iOS、安卓、微软Windows手机。SothEther自身的VPN客户端支持微软、Linux、Mac。支持其他VPN协议的VPN客户端和终端也可能会被使用；这包括了来自诸如思科、Juniper、Linksys(有DD-WRT)、Asus等等公司生产的各式各样的路由器。</p>
+<h2 id="VPN服务器"><a href="#VPN服务器" class="headerlink" title="VPN服务器"></a>VPN服务器</h2><p>SoftEther VPN服务器和其他VPN服务器一样，功能是接听来自客户端或桥接器使用各式协议的连接。<br>一个VPN服务器可以有好几个虚拟的集线器和交换器。虚拟集线器和实体的交换器一样，有完整的第二层网络分组交换功能。此外，虚拟集线器能被配置来定义IP数据包过滤项目，过滤经过集线器的数据包。虚拟的Network layer层交换器则像实体的路由器一样，有第三层IP静态路由功能。<br>一个VPN服务器可以有自带的桥接器。这个桥接器是一个在实体网络转接器和虚拟集线器之间的分组交换结构。系统管理员定义连接虚拟集线器和现有的内部网之间的桥接器，去创建一个远程访问的或站对站的VPN服务器。</p>
+<h2 id="VPN客户端"><a href="#VPN客户端" class="headerlink" title="VPN客户端"></a>VPN客户端</h2><p>SoftEther VPN客户端是个虚拟化的网络适配器。一个有安装客户端程序的电脑能创建与服务器的连接。因为VPN服务器支持多种VPN协议的关系，VPN用户并不需要在电脑上安装SofthEther VPN客户端，而是用内置在操作系统内的VPN客户端程序创建连接。然而，SoftEther VPN客户端比系统内置程序还多了些高级功能。想要充分利用SothEther VPN服务器的全部性能的话，建议还是安装客户端程序。</p>
+<h2 id="VPN桥接器"><a href="#VPN桥接器" class="headerlink" title="VPN桥接器"></a>VPN桥接器</h2><p>SoftEther VPN桥接器是个创建站对站VPN的程序。要创建这样的VPN，系统管理员必须安装SoftEther VPN服务器程序在中央电脑，然后要一个以上的远程电脑安装VPN桥接器。VPN桥接器会以级联连接连接中央VPN服务器。级连连接类似在两个实体网络交换机之间，一个虚拟化的上行连接。</p>
+<h2 id="VPN服务器微软版管理程序"><a href="#VPN服务器微软版管理程序" class="headerlink" title="VPN服务器微软版管理程序"></a>VPN服务器微软版管理程序</h2><p>这是个SoftEther VPN服务器和桥接器会用到的图型化接口管理工具。系统管理员可用来连接远程的服务器或桥接器并管理。连接使用了SSL，管理指令则用RPC在SSL上传输。</p>
+<h2 id="VPN命令行管理实用工具"><a href="#VPN命令行管理实用工具" class="headerlink" title="VPN命令行管理实用工具"></a>VPN命令行管理实用工具</h2><p>vpncmd是个自定义接口管理工具，用在服务器、各户端和桥接器上。它可以在所有支持的操作系统上运行。当有用户无法用Wine运行微软或Linux时，它可以转换到vpncmd来管理VPN。vpncmd也很适合用来运行批量操作，例如在虚拟集线器上创建好几个用户，或在服务器上创建好几个虚拟集线器。</p>
+<h2 id="架构"><a href="#架构" class="headerlink" title="架构"></a>架构</h2><p>SoftEther VPN某些部分的架构有别一般传统使用IPsec的VPN系统。</p>
+<h2 id="虚拟集线器"><a href="#虚拟集线器" class="headerlink" title="虚拟集线器"></a>虚拟集线器</h2><p>虚拟集线器就是以软件方式模拟网络交换机。它会更新和维持自身拥有的转发数据对照表。虽然传统的网络交换机将这功能做在硬件上，SoftEther VPN以软件实现了同样功能。一个VPN服务器可以有好几个虚拟集线器，各自独立。VPN客户端和桥接端的连接就是以集线器用分组交换来处理。<br>当一个服务器上有数个虚拟的集线器时，为了安全，这些集线器都会独立分开。各个不同的管理员可以对相应的虚拟集线器授予权限。每个虚拟极限的管理员可以限定用户对象和ACLs，而这仅限于被授权的集线器上。</p>
+<h2 id="虚拟网络转接器"><a href="#虚拟网络转接器" class="headerlink" title="虚拟网络转接器"></a>虚拟网络转接器</h2><p>一个VPN客户端可以在自己的电脑上创立数个网络转接器。VPN用户能在虚拟网络转接器和远程目标的虚拟集线器间创建可用连接。当创建了可用连接，用户就能借此和远程的VPN网络沟通。它可以让任何程序或操作系统不用特定设置就能使用，就和硬件版的使用方式一样。</p>
+<h2 id="虚拟交换机"><a href="#虚拟交换机" class="headerlink" title="虚拟交换机"></a>虚拟交换机</h2><p>它以软件方式模拟了IP路由器。一个服务器上可以同时间创立好几个虚拟交换机。虚拟交换机有虚拟的IP接口连接虚拟集线器。它也有几个固定的对照表上的分配项目。<br>虚拟交换机也适合用来做大型的站对站VPN网络。虽然有个简单的方式可以达成，就是用桥接创建VPN，但如果有很多台电脑，输入站点间的连接的广播数据包数量就会大增。为了预防这样规模扩张的问题，VPN管理者用虚拟交换机来隔绝IP网络。</p>
+<h2 id="虚拟集线器之间的级联连接"><a href="#虚拟集线器之间的级联连接" class="headerlink" title="虚拟集线器之间的级联连接"></a>虚拟集线器之间的级联连接</h2><p>管理员可以在地区或远程的虚拟集线器间定义一个级联连接。当级联连接被设立，原先独立的两个网段就被集成成一个了。所以这个级联连接功能被用来创建站对站的桥接。</p>
+<h2 id="虚拟集线器和网络间的地区桥接器"><a href="#虚拟集线器和网络间的地区桥接器" class="headerlink" title="虚拟集线器和网络间的地区桥接器"></a>虚拟集线器和网络间的地区桥接器</h2><p>因为虚拟集线器和虚拟网络转接器都只是软件模拟的设备，借此发送的数据包是无法和硬件设备沟通的。因此，需要一个模拟和实体设备之间的桥接，才能创建远程访问VPN或站对站VPN。要做出桥接，地区桥接器功能转会转换虚拟集线器和实体网络转接器间的数据包，结合两个独立网段成为一个单一的网段。<br>在VPN服务器上定义过地区桥接器后，各VPN客户端就可以借由地区桥接器，连到VPN服务器并和其他网络上的设备沟通。这就是远程访问VPN。<br>如果网络管理者设立了远程站点VPN桥接器，并在VPN服务器和VPN桥接器上分别定义了两个地区桥接，然后定义服务器和桥接器间的级联连接，远程的两个网段在第二层级上就会直接连在一起。这就是站对站VPN。</p>
+<h2 id="防火墙，代理服务器和NAT通透"><a href="#防火墙，代理服务器和NAT通透" class="headerlink" title="防火墙，代理服务器和NAT通透"></a>防火墙，代理服务器和NAT通透</h2><p>SoftEther VPN一个很重要的特色就对防火墙的穿透性、代理服务器和NATs。为此，SoftEther VPN支持SSL-VPN和NAT通透。它使用HTTPS协议来创建VPN通道。HTTPS用TCP&#x2F;IP port 443 当作目的地。</p>
+<h2 id="多个SSL-VPN通道的平行传输机制"><a href="#多个SSL-VPN通道的平行传输机制" class="headerlink" title="多个SSL-VPN通道的平行传输机制"></a>多个SSL-VPN通道的平行传输机制</h2><p>当用户选择SSL-VPN协议时，SlftEther VPN服务器和客户端会用一套平行传输机制来改善SSL-VPN通道的吞吐量。用户可以从1到32设置一个数字为同时并发传输通道的数量。当处在一个网速非常慢的地方时，这项性能调整会导致更快的吞吐量。一旦这功能被激活，逻辑VPN连接将包含多个TCP(HTTPS)连接。所有的数据包将会在适当的TCP连接中，被加进最优化模块的运算。如果逻辑VPN连接的TCP连接侦测到数据包的丢失，新的数据包就使用其他正常的VPN连接。这项快速切换最优化的功能造就高吞吐量。</p>
+<h2 id="NAT通透"><a href="#NAT通透" class="headerlink" title="NAT通透"></a>NAT通透</h2><p>传统的VPN系统需要用户去请求公司的防火墙管理者，在防火墙或公司与网络间的NAT开放一个终端点(TCP或UD端口)。为了减少需要开放终端点的情形，SlftEther VPN服务器有NAT通透功能。NAT通透会默认是引导状态。只要它引导，VPN客户端的电脑就能连接到被防火墙或NAT阻隔的VPN服务器，不需要在防火墙或NAT上特别设置。</p>
+<h2 id="通过ICMP和DNS上的VPN"><a href="#通过ICMP和DNS上的VPN" class="headerlink" title="通过ICMP和DNS上的VPN"></a>通过ICMP和DNS上的VPN</h2><p>有少数限制很多的网络只允许通过ICMP或DNS的数据包。在这种情形，TCP或UDP会被滤掉。为了让SoftEther VPN也能在这种网络创建连接，SoftEther VPN有特别为此设计的VPN功能。<br>这功能对穿过这样严格的防火墙非常有用。所有的VPN数据包都再度包成ICMP或DNS数据包来传输。接收端会从外层提出内层的数据包。因为有些公共Wi-Fi只能通过ICMP或DNS数据包，这让在公共Wi-Fi也能使用VPN。如果你为了出门，安装一个服务器在家中或办公室，你可以在限制网络中享受这自由协议的网络通信。</p>
+<h2 id="VPN-Gate"><a href="#VPN-Gate" class="headerlink" title="VPN Gate"></a>VPN Gate</h2><p>VPN Gate是个SoftEther VPN的插件，它让用户能连接由志愿者提供，在自家电脑安装SoftEther的免费公共VPN服务器，此功能可用于帮助用户绕过ZF的防火墙。VPN Gate由筑波大学赞助</p>
+<h1 id="SoftEtherVPN部署"><a href="#SoftEtherVPN部署" class="headerlink" title="SoftEtherVPN部署"></a>SoftEtherVPN部署</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wget http://jp.softether-download.com/files/softether/v4.20-9608-rtm-2016.04.17-tree/Linux/SoftEther_VPN_Server/64bit_-_Intel_x64_or_AMD64/softether-vpnserver-v4.20-9608-rtm-2016.04.17-linux-x64-64bit.tar.gz</span><br><span class="line">tar -xf softether-vpnserver-*.tar.gz  -C /usr/local/</span><br><span class="line">cd /usr/local/vpnserver/</span><br><span class="line">./.install.sh</span><br></pre></td></tr></table></figure>
+
+<h2 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">./vpnserver start   //运行 SoftEther VPN服务器的后台服务。</span><br><span class="line">./vpnserver stop  //停止 SoftEther VPN服务器的后台服务</span><br><span class="line">./vpncmd   //运行SoftEther VPN命令行实用工具来配置SoftEther VPN服务器。</span><br><span class="line">当然，你可以配置Windows GUI远程管SoftEther VPN服务器。</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/24/programming/" rel="next" title="程序员如何爱护自己的身体">
+                <i class="fa fa-chevron-left"></i> 程序员如何爱护自己的身体
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/05/01/%E7%8E%A9%E8%BD%AC%E4%B8%89%E9%98%B6%E9%AD%94%E6%96%B9/" rel="prev" title="玩转三阶魔方">
+                玩转三阶魔方 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
 
     <div class="post-spread">
-      {% if theme.jiathis %}
-        {% include '_partials/share/jiathis.swig' %}
-      {% elseif theme.baidushare %}
-        {% include '_partials/share/baidushare.swig' %}
-      {% elseif theme.add_this_id %}
-        {% include '_partials/share/add-this.swig' %}
-      {% elseif theme.duoshuo_shortname and theme.duoshuo_share %}
-        {% include '_partials/share/duoshuo_share.swig' %}
-      {% endif %}
+      
     </div>
   </div>
 
-{% endblock %}
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+          </div>
+          
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div class="fb-comments"
+           data-href="http://yoursite.com/2018/04/25/SoftEther-VPN/"
+           data-numposts="10"
+           data-width="100%"
+           data-colorscheme="light">
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">43</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%92%E7%94%A8%E6%80%A7"><span class="nav-number">1.1.</span> <span class="nav-text">互用性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#VPN%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-number">1.2.</span> <span class="nav-text">VPN服务器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#VPN%E5%AE%A2%E6%88%B7%E7%AB%AF"><span class="nav-number">1.3.</span> <span class="nav-text">VPN客户端</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#VPN%E6%A1%A5%E6%8E%A5%E5%99%A8"><span class="nav-number">1.4.</span> <span class="nav-text">VPN桥接器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#VPN%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%BE%AE%E8%BD%AF%E7%89%88%E7%AE%A1%E7%90%86%E7%A8%8B%E5%BA%8F"><span class="nav-number">1.5.</span> <span class="nav-text">VPN服务器微软版管理程序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#VPN%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%AE%A1%E7%90%86%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7"><span class="nav-number">1.6.</span> <span class="nav-text">VPN命令行管理实用工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9E%B6%E6%9E%84"><span class="nav-number">1.7.</span> <span class="nav-text">架构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%99%9A%E6%8B%9F%E9%9B%86%E7%BA%BF%E5%99%A8"><span class="nav-number">1.8.</span> <span class="nav-text">虚拟集线器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%99%9A%E6%8B%9F%E7%BD%91%E7%BB%9C%E8%BD%AC%E6%8E%A5%E5%99%A8"><span class="nav-number">1.9.</span> <span class="nav-text">虚拟网络转接器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%99%9A%E6%8B%9F%E4%BA%A4%E6%8D%A2%E6%9C%BA"><span class="nav-number">1.10.</span> <span class="nav-text">虚拟交换机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%99%9A%E6%8B%9F%E9%9B%86%E7%BA%BF%E5%99%A8%E4%B9%8B%E9%97%B4%E7%9A%84%E7%BA%A7%E8%81%94%E8%BF%9E%E6%8E%A5"><span class="nav-number">1.11.</span> <span class="nav-text">虚拟集线器之间的级联连接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%99%9A%E6%8B%9F%E9%9B%86%E7%BA%BF%E5%99%A8%E5%92%8C%E7%BD%91%E7%BB%9C%E9%97%B4%E7%9A%84%E5%9C%B0%E5%8C%BA%E6%A1%A5%E6%8E%A5%E5%99%A8"><span class="nav-number">1.12.</span> <span class="nav-text">虚拟集线器和网络间的地区桥接器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%98%B2%E7%81%AB%E5%A2%99%EF%BC%8C%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%92%8CNAT%E9%80%9A%E9%80%8F"><span class="nav-number">1.13.</span> <span class="nav-text">防火墙，代理服务器和NAT通透</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%9A%E4%B8%AASSL-VPN%E9%80%9A%E9%81%93%E7%9A%84%E5%B9%B3%E8%A1%8C%E4%BC%A0%E8%BE%93%E6%9C%BA%E5%88%B6"><span class="nav-number">1.14.</span> <span class="nav-text">多个SSL-VPN通道的平行传输机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NAT%E9%80%9A%E9%80%8F"><span class="nav-number">1.15.</span> <span class="nav-text">NAT通透</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%9A%E8%BF%87ICMP%E5%92%8CDNS%E4%B8%8A%E7%9A%84VPN"><span class="nav-number">1.16.</span> <span class="nav-text">通过ICMP和DNS上的VPN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#VPN-Gate"><span class="nav-number">1.17.</span> <span class="nav-text">VPN Gate</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SoftEtherVPN%E9%83%A8%E7%BD%B2"><span class="nav-number">2.</span> <span class="nav-text">SoftEtherVPN部署</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-number">2.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8%E6%9C%8D%E5%8A%A1"><span class="nav-number">2.2.</span> <span class="nav-text">启动服务</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xu D.F.</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">26.8k</span>
+  
+</div>
+
+<!--
+  
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+-->
+
+<span id="busuanzi_container_site_pv">
+	本站总访问量<span id="busuanzi_value_site_pv"></span>次
+</span>
+
+<span id="busuanzi_container_site_uv">
+    本站访客数<span id="busuanzi_value_site_uv"></span>人次
+</span>
+
+
+
+<!--
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+-->
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://darrenflexxu.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2018/04/25/SoftEther-VPN/';
+          this.page.identifier = '2018/04/25/SoftEther-VPN/';
+          this.page.title = 'SoftEther VPN';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://darrenflexxu.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+  
+  <!-- custom analytics part create by xiamo -->
+<script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+<script>AV.initialize("eE2kkOkVfmG9NLysiIPXG7jP-gzGzoHsz", "bN410QGRpkI3lLct24w0BLXl");</script>
+<script>
+function showTime(Counter) {
+	var query = new AV.Query(Counter);
+	$(".leancloud_visitors").each(function() {
+		var url = $(this).attr("id").trim();
+		query.equalTo("url", url);
+		query.find({
+			success: function(results) {
+				if (results.length == 0) {
+					var content = $(document.getElementById(url)).text() + '0 ';
+					$(document.getElementById(url)).text(content);
+					return;
+				}
+				for (var i = 0; i < results.length; i++) {
+					var object = results[i];
+					var content = $(document.getElementById(url)).text() + '' + object.get('time');
+					$(document.getElementById(url)).text(content);
+				}
+			},
+			error: function(object, error) {
+				console.log("Error: " + error.code + " " + error.message);
+			}
+		});
+
+	});
+}
+
+function addCount(Counter) {
+	var Counter = AV.Object.extend("Counter");
+	url = $(".leancloud_visitors").attr('id').trim();
+	title = $(".leancloud_visitors").attr('data-flag-title').trim();
+	var query = new AV.Query(Counter);
+	query.equalTo("url", url);
+	query.find({
+		success: function(results) {
+			if (results.length > 0) {
+				var counter = results[0];
+				counter.fetchWhenSave(true);
+				counter.increment("time");
+				counter.save(null, {
+					success: function(counter) {
+						var content = $(document.getElementById(url)).text() + ' ' + counter.get('time');
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(counter, error) {
+						console.log('Failed to save Visitor num, with error message: ' + error.message);
+					}
+				});
+			} else {
+				var newcounter = new Counter();
+				newcounter.set("title", title);
+				newcounter.set("url", url);
+				newcounter.set("time", 1);
+				newcounter.save(null, {
+					success: function(newcounter) {
+					    console.log("newcounter.get('time')="+newcounter.get('time'));
+						var content = $(document.getElementById(url)).text() + ' ' + newcounter.get('time');
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(newcounter, error) {
+						console.log('Failed to create');
+					}
+				});
+			}
+		},
+		error: function(error) {
+			console.log('Error:' + error.code + " " + error.message);
+		}
+	});
+}
+$(function() {
+	var Counter = AV.Object.extend("Counter");
+	if ($('.leancloud_visitors').length == 1) {
+		addCount(Counter);
+	} else if ($('.post-title-link').length > 1) {
+		showTime(Counter);
+	}
+}); 
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+</body>
+</html>

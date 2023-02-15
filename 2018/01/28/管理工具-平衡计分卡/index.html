@@ -1,37 +1,1040 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
 
 
-{% block title %}{{ page.title }} | {{ config.title }}{% endblock %}
 
-{% block page_class %}page-post-detail{% endblock %}
+  
 
 
-{% block content %}
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="管理学工具,平衡计分卡,战略地图," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="此篇文章主要介绍管理工具：卡普兰和诺顿的“平衡计分卡”和“战略地图”。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="管理工具-平衡计分卡和战略地图">
+<meta property="og:url" content="http://yoursite.com/2018/01/28/%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7-%E5%B9%B3%E8%A1%A1%E8%AE%A1%E5%88%86%E5%8D%A1/index.html">
+<meta property="og:site_name" content="勇士传说">
+<meta property="og:description" content="此篇文章主要介绍管理工具：卡普兰和诺顿的“平衡计分卡”和“战略地图”。">
+<meta property="og:locale">
+<meta property="og:image" content="http://yoursite.com/2018/01/28/%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7-%E5%B9%B3%E8%A1%A1%E8%AE%A1%E5%88%86%E5%8D%A1/%E9%AB%98%E5%B0%94%E5%A4%AB%E8%AE%A1%E5%88%86%E5%8D%A1.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/01/28/%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7-%E5%B9%B3%E8%A1%A1%E8%AE%A1%E5%88%86%E5%8D%A1/%E5%B9%B3%E8%A1%A1%E8%AE%A1%E5%88%86%E5%8D%A1%E4%B8%BE%E4%BE%8B1.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/01/28/%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7-%E5%B9%B3%E8%A1%A1%E8%AE%A1%E5%88%86%E5%8D%A1/%E5%B9%B3%E8%A1%A1%E8%AE%A1%E5%88%86%E5%8D%A1%E6%A8%A1%E6%9D%BF.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/01/28/%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7-%E5%B9%B3%E8%A1%A1%E8%AE%A1%E5%88%86%E5%8D%A1/%E7%BE%8E%E5%AD%9A%E6%88%98%E7%95%A5%E5%9C%B0%E5%9B%BE.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/01/28/%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7-%E5%B9%B3%E8%A1%A1%E8%AE%A1%E5%88%86%E5%8D%A1/%E5%B9%B3%E8%A1%A1%E8%AE%A1%E5%88%86%E5%8D%A1%E7%9A%84%E6%8C%87%E6%A0%87%E4%BD%93%E7%B3%BB.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/01/28/%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7-%E5%B9%B3%E8%A1%A1%E8%AE%A1%E5%88%86%E5%8D%A1/%E5%AD%A6%E6%A0%A1%E6%88%98%E7%95%A5%E5%9C%B0%E5%9B%BE.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/01/28/%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7-%E5%B9%B3%E8%A1%A1%E8%AE%A1%E5%88%86%E5%8D%A1/%E7%BE%8E%E5%9B%BD%E9%99%86%E5%86%9B%E7%9A%84%E6%88%98%E7%95%A5%E5%9C%B0%E5%9B%BE.jpg">
+<meta property="article:published_time" content="2018-01-28T01:47:47.000Z">
+<meta property="article:modified_time" content="2023-02-14T17:47:31.229Z">
+<meta property="article:author" content="Xu D.F.">
+<meta property="article:tag" content="管理学工具">
+<meta property="article:tag" content="平衡计分卡">
+<meta property="article:tag" content="战略地图">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2018/01/28/%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7-%E5%B9%B3%E8%A1%A1%E8%AE%A1%E5%88%86%E5%8D%A1/%E9%AB%98%E5%B0%94%E5%A4%AB%E8%AE%A1%E5%88%86%E5%8D%A1.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/01/28/管理工具-平衡计分卡/"/>
+
+
+
+
+
+  <title>管理工具-平衡计分卡和战略地图 | 勇士传说</title>
+  
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '',
+      xfbml      : true,
+      version    : 'v2.10'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/zh_Hans/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
+
+
+
+
+
+
+
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+   <script type="text/javascript" src="/js/src/fireworks.js"></script>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">勇士传说</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">DarrenFlex Xu 个人博客</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            日程表
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
 
   <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/28/%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7-%E5%B9%B3%E8%A1%A1%E8%AE%A1%E5%88%86%E5%8D%A1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="勇士传说">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">管理工具-平衡计分卡和战略地图</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-28T09:47:47+08:00">
+                2018-01-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/management/" itemprop="url" rel="index">
+                    <span itemprop="name">管理学</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/01/28/%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7-%E5%B9%B3%E8%A1%A1%E8%AE%A1%E5%88%86%E5%8D%A1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="http://yoursite.com/2018/01/28/%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7-%E5%B9%B3%E8%A1%A1%E8%AE%A1%E5%88%86%E5%8D%A1/" itemprop="commentCount">0</span> comments
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/01/28/%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7-%E5%B9%B3%E8%A1%A1%E8%AE%A1%E5%88%86%E5%8D%A1/" class="leancloud_visitors" data-flag-title="管理工具-平衡计分卡和战略地图">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.3k 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  4 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>此篇文章主要介绍管理工具：卡普兰和诺顿的“平衡计分卡”和“战略地图”。</p>
+<span id="more"></span>
+
+<h1 id="平衡计分卡的由来"><a href="#平衡计分卡的由来" class="headerlink" title="平衡计分卡的由来"></a>平衡计分卡的由来</h1><p><img src="/2018/01/28/%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7-%E5%B9%B3%E8%A1%A1%E8%AE%A1%E5%88%86%E5%8D%A1/%E9%AB%98%E5%B0%94%E5%A4%AB%E8%AE%A1%E5%88%86%E5%8D%A1.jpg" alt="logo"></p>
+<center>高尔夫计分卡</center>
+
+<p>平衡计分卡的灵感起源于高尔夫计分卡。</p>
+<h1 id="平衡计分卡的逻辑"><a href="#平衡计分卡的逻辑" class="headerlink" title="平衡计分卡的逻辑"></a>平衡计分卡的逻辑</h1><p>平衡计分卡里面包含了两个平衡：</p>
+<ul>
+<li>长期指标和短期指标的平衡</li>
+<li>财务指标和非财务指标的平衡</li>
+</ul>
+<p>传统的管理，不是没有考核，但多数人考核的，都是短期的财务指标，这就缺失了战略，缺失了长远目标，缺失了愿景。这个导向，对于很多企业是致命的。有时候，<strong>决定企业长期发展的因素，不是短期的财务指标，而是长期的、非财务指标</strong>。</p>
+<p>战略是长期的目标，关乎企业长期持续增长的大方向，而经理人、中层，乃至基层员工所关心的目标都是短期目标，这些短期目标应该基于公司的长远目标。所以，从另外一个角度来看，<font color="#0099ff">管理者需要做的、最重要的一件事，就是要把公司长远的战略转化成团队和员工的一套业绩考核指标，然后这一套业绩指标就可以指示每一个人、每一天的行动。<font></font></font></p>
+<h1 id="平衡计分卡的例子"><a href="#平衡计分卡的例子" class="headerlink" title="平衡计分卡的例子"></a>平衡计分卡的例子</h1><p><img src="/2018/01/28/%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7-%E5%B9%B3%E8%A1%A1%E8%AE%A1%E5%88%86%E5%8D%A1/%E5%B9%B3%E8%A1%A1%E8%AE%A1%E5%88%86%E5%8D%A1%E4%B8%BE%E4%BE%8B1.jpg" alt="logo"></p>
+<center>某公司的平衡计分卡</center>
+
+<h1 id="平衡计分卡的注意事项"><a href="#平衡计分卡的注意事项" class="headerlink" title="平衡计分卡的注意事项"></a>平衡计分卡的注意事项</h1><p>平衡计分卡作为一种管理工具，是没有问题的，但是，实施这个管理工具如果运用得不恰当，是会导致很大问题的。平衡计分卡不是一个仅仅关于考核的工具，它是一个战略落地的工具。它在实施的全过程中，就应该是一个一把手工程，而不能仅仅由人力资源部来组织实施。</p>
+<h1 id="平衡计分卡的模板"><a href="#平衡计分卡的模板" class="headerlink" title="平衡计分卡的模板"></a>平衡计分卡的模板</h1><p><img src="/2018/01/28/%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7-%E5%B9%B3%E8%A1%A1%E8%AE%A1%E5%88%86%E5%8D%A1/%E5%B9%B3%E8%A1%A1%E8%AE%A1%E5%88%86%E5%8D%A1%E6%A8%A1%E6%9D%BF.jpg" alt="logo"></p>
+<center>平衡计分卡模板</center>
+
+<h1 id="战略地图的例子"><a href="#战略地图的例子" class="headerlink" title="战略地图的例子"></a>战略地图的例子</h1><p><img src="/2018/01/28/%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7-%E5%B9%B3%E8%A1%A1%E8%AE%A1%E5%88%86%E5%8D%A1/%E7%BE%8E%E5%AD%9A%E6%88%98%E7%95%A5%E5%9C%B0%E5%9B%BE.jpg" alt="logo"></p>
+<center>美孚战略地图</center>
+
+<h2 id="例外管理"><a href="#例外管理" class="headerlink" title="例外管理"></a>例外管理</h2><p>管理的一般法则：就是要尽可能想办法管特殊情况，不要管一般情况，把一般的情况交给制度管，用制度解决绝大多数问题。<br>管理者的任务，不是不停地解决问题，而是要重点解决例外的问题。好的管理者，管的都是特殊的问题，进行的都应该是例外管理。<br>例外的问题主要有两种：一种是组织从来没有碰到过的问题；还有一种，就是旧制度无法解决的问题。对于后者，你需要着手考虑在适当的时候，修改制度，把特例变成通例。一旦变成了通例，这些问题又成了制度可以解决的问题。</p>
+<h2 id="给企业装上仪表系统"><a href="#给企业装上仪表系统" class="headerlink" title="给企业装上仪表系统"></a>给企业装上仪表系统</h2><p><img src="/2018/01/28/%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7-%E5%B9%B3%E8%A1%A1%E8%AE%A1%E5%88%86%E5%8D%A1/%E5%B9%B3%E8%A1%A1%E8%AE%A1%E5%88%86%E5%8D%A1%E7%9A%84%E6%8C%87%E6%A0%87%E4%BD%93%E7%B3%BB.jpg" alt="logo"></p>
+<center>美孚平衡计分卡的指标体系</center>
+
+<p>最左面的一列是战略主题。比如，在业务流程这个层面，他们认为自己必须要做好这样几件事，依次是建立好的专营权的营销网络；要能够安全可靠地向市场供应；要成为有竞争力的供应商；要强化质量管理；要成为一个好邻居。这五条都是要通过有效的内部运作来实现的目标，他们称之为战略主题。</p>
+<h2 id="给仪表设置正常值"><a href="#给仪表设置正常值" class="headerlink" title="给仪表设置正常值"></a>给仪表设置正常值</h2><p>一个战略目标的后面，一定要跟上一堆相应的指标。有了仪表，有了战略指标，接下来就可以为这个仪表设置正常值了。这些指标的正常值，都是从那个大目标里面推导出来、分解下来的，所以，只要这些指标都在正常值里面，运行一年之后，一定会达到总目标。而一旦出现了异常和例外，实际情况低于这些指标，有针对性地相应调整就行了。</p>
+<h2 id="锁定员工的动作"><a href="#锁定员工的动作" class="headerlink" title="锁定员工的动作"></a>锁定员工的动作</h2><p>公司有了上述一步一步拆解建立起来的仪表系统，他们基于此为员工编制了一份教育手册，上面罗列了新的行动方案。在这份手册里，没有出现什么“平衡计分卡”运动之类的大词和大字样，相反，这份教育手册让员工知道公司正在追求的战略主题是什么。紧接着，通过人力资源系统，个人的年度目标被明确出来，人力资源部也为员工制定了与实现个人目标必要的培训和工具。每个员工就像进入磁场中的小磁针，他们工作的方向都朝向了公司期望的目标。</p>
+<h2 id="其他战略地图案例"><a href="#其他战略地图案例" class="headerlink" title="其他战略地图案例"></a>其他战略地图案例</h2><p><img src="/2018/01/28/%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7-%E5%B9%B3%E8%A1%A1%E8%AE%A1%E5%88%86%E5%8D%A1/%E5%AD%A6%E6%A0%A1%E6%88%98%E7%95%A5%E5%9C%B0%E5%9B%BE.jpg" alt="logo"></p>
+<center>学校战略地图</center>
+
+<p><img src="/2018/01/28/%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7-%E5%B9%B3%E8%A1%A1%E8%AE%A1%E5%88%86%E5%8D%A1/%E7%BE%8E%E5%9B%BD%E9%99%86%E5%86%9B%E7%9A%84%E6%88%98%E7%95%A5%E5%9C%B0%E5%9B%BE.jpg" alt="logo"></p>
+<center>美国陆军的战略地图</center>
+
+<h1 id="软性指标"><a href="#软性指标" class="headerlink" title="软性指标"></a>软性指标</h1><p>软性指标的定量化测量，是有效应用平衡计分卡的一个重要部分。虽然软性指标无法像财务指标那么准确地被测度到，但关注这些指标，进而关注一些长期因素，就可以使企业有更多的方向感，也会看得更长远，这就有助于战略眼界的进化，有助于战略目标的落地。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/management-tools/" rel="tag"># 管理学工具</a>
+          
+            <a href="/tags/balanced-scorecard/" rel="tag"># 平衡计分卡</a>
+          
+            <a href="/tags/strategic-map/" rel="tag"># 战略地图</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/06/03/Window%E5%B7%A5%E4%BD%9C%E6%9C%BA%E5%88%B6/" rel="next" title="Window工作机制">
+                <i class="fa fa-chevron-left"></i> Window工作机制
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/03/14/%E6%8E%8C%E6%8F%A1C-%E7%9A%84%E8%B7%AF%E5%BE%84/" rel="prev" title="掌握C++的路径">
+                掌握C++的路径 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
 
     <div class="post-spread">
-      {% if theme.jiathis %}
-        {% include '_partials/share/jiathis.swig' %}
-      {% elseif theme.baidushare %}
-        {% include '_partials/share/baidushare.swig' %}
-      {% elseif theme.add_this_id %}
-        {% include '_partials/share/add-this.swig' %}
-      {% elseif theme.duoshuo_shortname and theme.duoshuo_share %}
-        {% include '_partials/share/duoshuo_share.swig' %}
-      {% endif %}
+      
     </div>
   </div>
 
-{% endblock %}
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+          </div>
+          
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div class="fb-comments"
+           data-href="http://yoursite.com/2018/01/28/%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7-%E5%B9%B3%E8%A1%A1%E8%AE%A1%E5%88%86%E5%8D%A1/"
+           data-numposts="10"
+           data-width="100%"
+           data-colorscheme="light">
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">43</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B9%B3%E8%A1%A1%E8%AE%A1%E5%88%86%E5%8D%A1%E7%9A%84%E7%94%B1%E6%9D%A5"><span class="nav-number">1.</span> <span class="nav-text">平衡计分卡的由来</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B9%B3%E8%A1%A1%E8%AE%A1%E5%88%86%E5%8D%A1%E7%9A%84%E9%80%BB%E8%BE%91"><span class="nav-number">2.</span> <span class="nav-text">平衡计分卡的逻辑</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B9%B3%E8%A1%A1%E8%AE%A1%E5%88%86%E5%8D%A1%E7%9A%84%E4%BE%8B%E5%AD%90"><span class="nav-number">3.</span> <span class="nav-text">平衡计分卡的例子</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B9%B3%E8%A1%A1%E8%AE%A1%E5%88%86%E5%8D%A1%E7%9A%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="nav-number">4.</span> <span class="nav-text">平衡计分卡的注意事项</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B9%B3%E8%A1%A1%E8%AE%A1%E5%88%86%E5%8D%A1%E7%9A%84%E6%A8%A1%E6%9D%BF"><span class="nav-number">5.</span> <span class="nav-text">平衡计分卡的模板</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%88%98%E7%95%A5%E5%9C%B0%E5%9B%BE%E7%9A%84%E4%BE%8B%E5%AD%90"><span class="nav-number">6.</span> <span class="nav-text">战略地图的例子</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BE%8B%E5%A4%96%E7%AE%A1%E7%90%86"><span class="nav-number">6.1.</span> <span class="nav-text">例外管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%99%E4%BC%81%E4%B8%9A%E8%A3%85%E4%B8%8A%E4%BB%AA%E8%A1%A8%E7%B3%BB%E7%BB%9F"><span class="nav-number">6.2.</span> <span class="nav-text">给企业装上仪表系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%99%E4%BB%AA%E8%A1%A8%E8%AE%BE%E7%BD%AE%E6%AD%A3%E5%B8%B8%E5%80%BC"><span class="nav-number">6.3.</span> <span class="nav-text">给仪表设置正常值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%94%81%E5%AE%9A%E5%91%98%E5%B7%A5%E7%9A%84%E5%8A%A8%E4%BD%9C"><span class="nav-number">6.4.</span> <span class="nav-text">锁定员工的动作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E6%88%98%E7%95%A5%E5%9C%B0%E5%9B%BE%E6%A1%88%E4%BE%8B"><span class="nav-number">6.5.</span> <span class="nav-text">其他战略地图案例</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BD%AF%E6%80%A7%E6%8C%87%E6%A0%87"><span class="nav-number">7.</span> <span class="nav-text">软性指标</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xu D.F.</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">26.8k</span>
+  
+</div>
+
+<!--
+  
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+-->
+
+<span id="busuanzi_container_site_pv">
+	本站总访问量<span id="busuanzi_value_site_pv"></span>次
+</span>
+
+<span id="busuanzi_container_site_uv">
+    本站访客数<span id="busuanzi_value_site_uv"></span>人次
+</span>
+
+
+
+<!--
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+-->
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://darrenflexxu.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2018/01/28/%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7-%E5%B9%B3%E8%A1%A1%E8%AE%A1%E5%88%86%E5%8D%A1/';
+          this.page.identifier = '2018/01/28/管理工具-平衡计分卡/';
+          this.page.title = '管理工具-平衡计分卡和战略地图';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://darrenflexxu.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+  
+  <!-- custom analytics part create by xiamo -->
+<script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+<script>AV.initialize("eE2kkOkVfmG9NLysiIPXG7jP-gzGzoHsz", "bN410QGRpkI3lLct24w0BLXl");</script>
+<script>
+function showTime(Counter) {
+	var query = new AV.Query(Counter);
+	$(".leancloud_visitors").each(function() {
+		var url = $(this).attr("id").trim();
+		query.equalTo("url", url);
+		query.find({
+			success: function(results) {
+				if (results.length == 0) {
+					var content = $(document.getElementById(url)).text() + '0 ';
+					$(document.getElementById(url)).text(content);
+					return;
+				}
+				for (var i = 0; i < results.length; i++) {
+					var object = results[i];
+					var content = $(document.getElementById(url)).text() + '' + object.get('time');
+					$(document.getElementById(url)).text(content);
+				}
+			},
+			error: function(object, error) {
+				console.log("Error: " + error.code + " " + error.message);
+			}
+		});
+
+	});
+}
+
+function addCount(Counter) {
+	var Counter = AV.Object.extend("Counter");
+	url = $(".leancloud_visitors").attr('id').trim();
+	title = $(".leancloud_visitors").attr('data-flag-title').trim();
+	var query = new AV.Query(Counter);
+	query.equalTo("url", url);
+	query.find({
+		success: function(results) {
+			if (results.length > 0) {
+				var counter = results[0];
+				counter.fetchWhenSave(true);
+				counter.increment("time");
+				counter.save(null, {
+					success: function(counter) {
+						var content = $(document.getElementById(url)).text() + ' ' + counter.get('time');
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(counter, error) {
+						console.log('Failed to save Visitor num, with error message: ' + error.message);
+					}
+				});
+			} else {
+				var newcounter = new Counter();
+				newcounter.set("title", title);
+				newcounter.set("url", url);
+				newcounter.set("time", 1);
+				newcounter.save(null, {
+					success: function(newcounter) {
+					    console.log("newcounter.get('time')="+newcounter.get('time'));
+						var content = $(document.getElementById(url)).text() + ' ' + newcounter.get('time');
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(newcounter, error) {
+						console.log('Failed to create');
+					}
+				});
+			}
+		},
+		error: function(error) {
+			console.log('Error:' + error.code + " " + error.message);
+		}
+	});
+}
+$(function() {
+	var Counter = AV.Object.extend("Counter");
+	if ($('.leancloud_visitors').length == 1) {
+		addCount(Counter);
+	} else if ($('.post-title-link').length > 1) {
+		showTime(Counter);
+	}
+}); 
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+</body>
+</html>
