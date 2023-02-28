@@ -169,16 +169,20 @@
 <ul>
 <li><strong>Webkit内核</strong> 由苹果公司开发，包括渲染引擎WebCore和JavaScript引擎JSCore；首先由Safari使用，后衍生了多个Webkit分支，其中包括Chrome浏览器内核（Chromium内核13年以前）</li>
 <li><strong>Trident内核</strong> IE内核，该内核支持WebGL和HTML5标准；</li>
-<li><strong>Blink内核</strong> 基于Webkit2.0,采用多进程架构；<br> 优势如下：<br>  1. 避免单个page crash影响整个浏览器<ol start="2">
-<li>避免第三方插件crash影响整个浏览器</li>
-<li>多进程充分利用多核优势</li>
-<li>方便使用沙盒模型隔离插件等进程，提高浏览器稳定性</li>
-</ol>
-</li>
+<li><strong>Blink内核</strong> 基于Webkit2.0,采用多进程架构；<br>
+优势如下：<br>
+ 1. 避免单个page crash影响整个浏览器<br>
+2. 避免第三方插件crash影响整个浏览器<br>
+3. 多进程充分利用多核优势<br>
+4. 方便使用沙盒模型隔离插件等进程，提高浏览器稳定性</li>
 </ul>
-<p> 多进程包含如下：</p>
+<p>多进程包含如下：</p>
 <ol>
-<li>Browser进程：主进程，只有一个。<br>  （1）负责浏览器界面显示，与用户交互。如前进，后退等<br>  （2）负责各个页面的管理，创建和销毁其他进程<br>  （3）将Renderer进程得到的内存中的Bitmap，绘制到用户界面上<br>  （4）网络资源的管理，下载等</li>
+<li>Browser进程：主进程，只有一个。<br>
+（1）负责浏览器界面显示，与用户交互。如前进，后退等<br>
+（2）负责各个页面的管理，创建和销毁其他进程<br>
+（3）将Renderer进程得到的内存中的Bitmap，绘制到用户界面上<br>
+（4）网络资源的管理，下载等</li>
 <li>Renderer进程：默认每个页面一个，互不影响。主要作用为解析HTML，CSS，构建DOM树和RenderObject树，布局和绘制等。</li>
 <li>第三方插件进程：每种类型的插件对应一个进程，仅当使用该插件时才创建</li>
 <li>GPU进程：最多一个，用于3D绘制等</li>
